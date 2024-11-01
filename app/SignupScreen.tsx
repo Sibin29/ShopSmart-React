@@ -2,30 +2,25 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
-import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const router = useRouter(); // Use the router hook
-
-  const handleLogin = () => {
-    // Navigate to the HomeScreen
-    router.push('/HomeScreen'); // Use router.push to navigate
-  };
-  const handleSignup = () => {
-    // Navigate to the HomeScreen
-    router.push('/SignupScreen'); // Use router.push to navigate
-  };
 
   const handleSignUp = () => {
     // Navigate to the HomeScreen
-    router.push('/SignUp'); // Use router.push to navigate
+    router.push('/HomeScreen'); // Use router.push to navigate
+  };
+  const handleLogin = () => {
+    // Navigate to the HomeScreen
+    router.push('/LoginScreen'); // Use router.push to navigate
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Login to your ShopSmart account!</Text>
+      <Text style={styles.welcomeText}>Create your ShopSmart account!</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -40,16 +35,19 @@ const LoginScreen = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+            <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.linkText}>Forgot Password?</Text>
+      <TouchableOpacity onPress={handleLogin}>
+        <Text style={styles.linkText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={(handleSignup)}>
-        <Text style={styles.linkText}>Sign Up</Text>
-      </TouchableOpacity>
-      <Toast />
     </View>
   );
 };

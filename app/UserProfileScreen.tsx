@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const UserProfileScreen = () => {
@@ -11,18 +11,32 @@ const UserProfileScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handleLogout}>
-          <Text style={styles.logoutButton}>Logout</Text>
-        </TouchableOpacity>
-      </View>
-      <Image
-        source={{ uri: 'https://via.placeholder.com/100' }} // Placeholder image URL
-        style={styles.profileImage}
-      />
-      <Text style={styles.infoText}>User Name: Shop Smart</Text>
-      <Text style={styles.infoText}>Email: ShopSmart@example.com</Text>
-      <Text style={styles.infoText}>Address: 123 Main St, Barrie</Text>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image
+          source={{ uri: 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg' }} // Placeholder image URL
+          style={styles.profileImage}
+        />
+        <View style={styles.infoContainer}>
+          <Text style={styles.label}>User Name:</Text>
+          <View style={styles.textBox}>
+            <Text style={styles.textBoxText}>Shop Smart</Text>
+          </View>
+
+          <Text style={styles.label}>Email:</Text>
+          <View style={styles.textBox}>
+            <Text style={styles.textBoxText}>ShopSmart@example.com</Text>
+          </View>
+
+          <Text style={styles.label}>Address:</Text>
+          <View style={styles.textBox}>
+            <Text style={styles.textBoxText}>123 Main St, Barrie</Text>
+          </View>
+        </View>
+      </ScrollView>
+
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.logoutButtonText}>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -30,27 +44,55 @@ const UserProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5', // Light background for a clean look
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-  },
-  header: {
-    width: '100%',
-    alignItems: 'flex-end',
-  },
-  logoutButton: {
-    color: '#007BFF',
-    fontSize: 16,
-    marginBottom: 10,
+    paddingHorizontal: 20,
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
     marginBottom: 20,
   },
-  infoText: {
+  infoContainer: {
+    width: '100%',
+    marginTop: 20,
+  },
+  label: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#333', // Darker text for readability
+  },
+  textBox: {
+    backgroundColor: '#ffffff',
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 15,
+    elevation: 2, // Shadow for a subtle 3D effect
+  },
+  textBoxText: {
     fontSize: 16,
-    marginBottom: 10,
+    color: '#333',
+  },
+  logoutButton: {
+    backgroundColor: '#007BFF', // Consistent button color
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 20,
+    alignSelf: 'stretch',
+  },
+  logoutButtonText: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
