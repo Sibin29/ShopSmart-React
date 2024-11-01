@@ -7,7 +7,7 @@ export default function WelcomeScreen() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to My New App!</Text>
+      <Text>Welcome to ShopSmart!</Text>
       <Button title="Go to Login" onPress={() => router.push('/LoginScreen')} />
     </View>
   );
