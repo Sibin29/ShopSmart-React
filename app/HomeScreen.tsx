@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const HomeScreen = () => {
@@ -24,12 +24,18 @@ const HomeScreen = () => {
       <FlatList
         data={shops}
         renderItem={({ item }) => (
-          <View style={styles.shopItem}>
+          <View style={styles.shopItemContainer}>
+            <View style={styles.shopItem}>
+              <Image
+                source={{ uri: 'https://placehold.co/1000x200/B3D9FF/007BFF/png?text='+ item.name }} // Updated placeholder image URL
+                style={styles.shopImage}
+              />
+            </View>
             <Text style={styles.shopName}>{item.name}</Text>
           </View>
         )}
         keyExtractor={(item) => item.id}
-        numColumns={2}
+        numColumns={2} // Adjusting for larger items per row
       />
     </View>
   );
@@ -39,6 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#f5f5f5',
   },
   header: {
     flexDirection: 'row',
@@ -63,17 +70,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
   },
-  shopItem: {
+  shopItemContainer: {
     flex: 1,
-    height: 100,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  shopItem: {
+    width: '90%', // Horizontal size
+    height: 150, // Vertical size
+    backgroundColor: '#B3D9FF', // Lighter shade of #007BFF that is used for buttons
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 8,
+    elevation: 4, // Shadow for the rectangles
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  shopImage: {
+    width: 190,
+    height: 230,
+    resizeMode: 'contain',
   },
   shopName: {
+    marginTop: 8,
     fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
   },
 });
 
