@@ -1,31 +1,34 @@
-// screens/HomeScreen.tsx
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-
-const shops = [
-  { id: '1', name: 'Shop 1' },
-  { id: '2', name: 'Shop 2' },
-  { id: '3', name: 'Shop 3' },
-  { id: '4', name: 'Shop 4' },
-  { id: '5', name: 'Shop 5' },
-  { id: '6', name: 'Shop 6' },
-  { id: '7', name: 'Shop 7' },
-  { id: '8', name: 'Shop 8' },
-];
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const HomeScreen = () => {
+  const router = useRouter();
+  const shops = [
+    { id: '1', name: 'Shoppers' },
+    { id: '2', name: 'No Frills' },
+    { id: '3', name: 'Rexall' },
+    { id: '4', name: 'Circle K' },
+    { id: '5', name: 'Dollarama' }
+  ];
+
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <TextInput style={styles.searchBar} placeholder="Search shops..." />
+        <TouchableOpacity onPress={() => router.push('/UserProfileScreen')}>
+          <Text style={styles.profileIcon}>👤</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.title}>Shops</Text>
       <FlatList
         data={shops}
         renderItem={({ item }) => (
           <View style={styles.shopItem}>
-            {/* Placeholder icon can be replaced with an actual icon later */}
             <Text style={styles.shopName}>{item.name}</Text>
           </View>
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         numColumns={2}
       />
     </View>
@@ -37,6 +40,24 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  searchBar: {
+    flex: 1,
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    marginRight: 10,
+  },
+  profileIcon: {
+    fontSize: 24,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -44,15 +65,15 @@ const styles = StyleSheet.create({
   },
   shopItem: {
     flex: 1,
-    margin: 8,
-    height: 100, // Height of the square item
-    borderRadius: 12,
-    backgroundColor: '#eee',
+    height: 100,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    margin: 8,
   },
   shopName: {
-    fontSize: 18,
+    fontSize: 16,
   },
 });
 
