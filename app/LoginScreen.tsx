@@ -17,6 +17,11 @@ const LoginScreen = () => {
     router.push('/SignupScreen'); // Use router.push to navigate
   };
 
+  const handleSignUp = () => {
+    // Navigate to the HomeScreen
+    router.push('/SignUp'); // Use router.push to navigate
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Login to your ShopSmart account!</Text>
