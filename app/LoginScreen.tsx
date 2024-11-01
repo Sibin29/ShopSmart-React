@@ -13,6 +13,11 @@ const LoginScreen = () => {
     router.push('/HomeScreen'); // Use router.push to navigate
   };
 
+  const handleSignUp = () => {
+    // Navigate to the HomeScreen
+    router.push('/SignUp'); // Use router.push to navigate
+  };
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -36,7 +41,7 @@ const LoginScreen = () => {
         <Text style={styles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Text style={styles.linkText}>Sign Up</Text>
+        <Text style={styles.linkText} onPress={handleSignUp}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
