@@ -1,14 +1,73 @@
 // app/WelcomeScreen.tsx
-import { View, Text, Button } from 'react-native';
+import React from 'react';
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function WelcomeScreen() {
   const router = useRouter();
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to ShopSmart!</Text>
-      <Button title="Go to Login" onPress={() => router.push('/LoginScreen')} />
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>Welcome to ShopSmart!</Text>
+      <Text style={styles.loginPrompt}>Already have an account?</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/LoginScreen')}
+      >
+        <Text style={styles.buttonText}>Login to continue</Text>
+      </TouchableOpacity>
+      <Text style={styles.signupPrompt}>New to the app?</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/SignupScreen')}
+      >
+        <Text style={styles.buttonText}>Signup to get started</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5', 
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+  },
+  welcomeText: {
+    fontSize: 46,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    fontFamily: 'sans-serif', // Replace with your custom font if needed
+  },
+  loginPrompt: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 40,
+    textAlign: 'center',
+    fontFamily: 'sans-serif',
+  },
+  signupPrompt: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 20,
+    textAlign: 'center',
+    fontFamily: 'sans-serif',
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    marginTop: 8,
+    alignItems: 'center',
+    backgroundColor: '#007BFF',
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    fontFamily: 'sans-serif',
+  },
+});
