@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -48,6 +49,7 @@ const LoginScreen = () => {
       <TouchableOpacity onPress={(handleSignup)}>
         <Text style={styles.linkText}>Sign Up</Text>
       </TouchableOpacity>
+      <Toast />
     </View>
   );
 };

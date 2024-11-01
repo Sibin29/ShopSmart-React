@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import Toast from 'react-native-toast-message';
 
 export default function WelcomeScreen() {
   const router = useRouter();
