@@ -6,7 +6,7 @@ export default function Layout() {
     <Stack>
       <Stack.Screen name="index" options={{ title: '' }} />
       <Stack.Screen name="LoginScreen" options={{ title: 'Login to continue' }} />
-      <Stack.Screen name="Signup" options={{ title: 'Create a new account' }} />
+      <Stack.Screen name="SignupScreen" options={{ title: 'Create a new account' }} />
       <Stack.Screen name="HomeScreen" options={{ title: 'Shops' }} />
       <Stack.Screen name="UserProfileScreen" options={{ title: 'My Profile' }} />
     </Stack>
