@@ -14,8 +14,8 @@ const SignUpScreen = () => {
 
 
   const handleSignUp = () => {
-    // Navigate to the LoginScreen
-    router.push('/LoginScreen'); // Use router.push to navigate
+    // Navigate to the HomeScreen
+    router.push('/HomeScreen'); // Use router.push to navigate
   };
   const handleLogin = () => {
     // Navigate to the LoginScreen
