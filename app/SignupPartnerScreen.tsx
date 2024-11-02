@@ -25,11 +25,11 @@ const SignUpPartnerScreen = () => {
       bottomOffset: 40,
     });
     // Navigate to the LoginScreen
-    router.push('/LoginScreen'); // Use router.push to navigate
+    router.push('/LogInPartnerScreen'); // Use router.push to navigate
   };
   const handleLogin = () => {
     // Navigate to the LoginScreen
-    router.push('/LoginScreen'); // Use router.push to navigate
+    router.push('/LogInPartnerScreen'); // Use router.push to navigate
   };
 
   return (
