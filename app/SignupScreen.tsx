@@ -2,25 +2,60 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [rpassword, setRpassword] = useState('');
   const router = useRouter(); // Use the router hook
 
+
   const handleSignUp = () => {
-    // Navigate to the HomeScreen
-    router.push('/HomeScreen'); // Use router.push to navigate
+    Toast.show({
+      type: 'info',
+      text1: 'SignUp Successful!',
+      position: 'bottom',
+      visibilityTime: 2000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    });
+    // Navigate to the LoginScreen
+    router.push('/LoginScreen'); // Use router.push to navigate
   };
   const handleLogin = () => {
-    // Navigate to the HomeScreen
+    // Navigate to the LoginScreen
     router.push('/LoginScreen'); // Use router.push to navigate
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Create your ShopSmart account!</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="First Name"
+        value={fname}
+        onChangeText={setFname}
+        keyboardType="default"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Last Name"
+        value={lname}
+        onChangeText={setLname}
+        keyboardType="default"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Phone Number"
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="default"
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -35,18 +70,18 @@ const LoginScreen = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-            <TextInput
+      <TextInput
         style={styles.input}
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-        secureTextEntry
+        placeholder="Re-Enter Password"
+        value={rpassword}
+        onChangeText={setRpassword}
+        keyboardType="visible-password"
       />
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleLogin}>
-        <Text style={styles.linkText}>Login</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Already Have Account?</Text>
       </TouchableOpacity>
     </View>
   );
@@ -78,6 +113,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
+    marginBottom: 12,
   },
   buttonText: {
     color: '#FFFFFF',
