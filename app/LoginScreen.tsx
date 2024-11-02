@@ -14,14 +14,10 @@ const LoginScreen = () => {
     router.push('/HomeScreen'); // Use router.push to navigate
   };
   const handleSignup = () => {
-    // Navigate to the HomeScreen
+    // Navigate to the SignupScreen
     router.push('/SignupScreen'); // Use router.push to navigate
   };
 
-  const handleSignUp = () => {
-    // Navigate to the HomeScreen
-    router.push('/SignUp'); // Use router.push to navigate
-  };
 
   return (
     <View style={styles.container}>
