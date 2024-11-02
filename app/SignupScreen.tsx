@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
-import Toast from 'react-native-toast-message';
 
 const SignUpScreen = () => {
   const [fname, setFname] = useState('');
@@ -15,15 +14,6 @@ const SignUpScreen = () => {
 
 
   const handleSignUp = () => {
-    Toast.show({
-      type: 'info',
-      text1: 'SignUp Successful!',
-      position: 'bottom',
-      visibilityTime: 2000,
-      autoHide: true,
-      topOffset: 30,
-      bottomOffset: 40,
-    });
     // Navigate to the LoginScreen
     router.push('/LoginScreen'); // Use router.push to navigate
   };
