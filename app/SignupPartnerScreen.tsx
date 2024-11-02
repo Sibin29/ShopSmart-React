@@ -1,10 +1,10 @@
-// screens/SignUpScreen.tsx
+// screens/SignUpPartnerScreen.tsx
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
 import Toast from 'react-native-toast-message';
 
-const SignUpScreen = () => {
+const SignUpPartnerScreen = () => {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [phone, setPhone] = useState('');
@@ -58,6 +58,27 @@ const SignUpScreen = () => {
       />
       <TextInput
         style={styles.input}
+        placeholder="Store Name"
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="default"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Store Number"
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="default"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Address"
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="default"
+      />
+      <TextInput
+        style={styles.input}
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -81,7 +102,7 @@ const SignUpScreen = () => {
         <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Already Have Account?</Text>
+        <Text style={styles.buttonText}>Already Have Account for Store?</Text>
       </TouchableOpacity>
     </View>
   );
@@ -126,4 +147,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default SignUpPartnerScreen;

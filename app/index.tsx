@@ -7,6 +7,16 @@ import Toast from 'react-native-toast-message';
 export default function WelcomeScreen() {
   const router = useRouter();
 
+  const handleLogInPartner = () => {
+    // Navigate to the LogInPartnerScreen
+    router.push('/LogInPartnerScreen'); // Use router.push to navigate
+  };
+
+  const handleSignupPartner = () => {
+    // Navigate to the SignupScreen
+    router.push('/SignupPartnerScreen'); // Use router.push to navigate
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to ShopSmart!</Text>
@@ -17,12 +27,15 @@ export default function WelcomeScreen() {
       >
         <Text style={styles.buttonText}>Login to continue</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={(handleLogInPartner)}>
+        <Text style={styles.linkText}>Login as Partner</Text>
+      </TouchableOpacity>
       <Text style={styles.signupPrompt}>New to the app?</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push('/SignupScreen')}
-      >
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/SignupScreen')}>
         <Text style={styles.buttonText}>Signup to get started</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={(handleSignupPartner)}>
+        <Text style={styles.linkText}>Sign Up as Partner</Text>
       </TouchableOpacity>
     </View>
   );
@@ -64,11 +77,18 @@ const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: 'center',
     backgroundColor: '#007BFF',
+    marginBottom: 12,
   },
   buttonText: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
     fontFamily: 'sans-serif',
+  },
+  linkText: {
+    color: '#007BFF',
+    marginTop: 10,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });

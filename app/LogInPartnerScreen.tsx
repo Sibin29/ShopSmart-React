@@ -1,61 +1,28 @@
-// screens/SignUpScreen.tsx
+// screens/LogInPartnerScreen.tsx
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
 import Toast from 'react-native-toast-message';
 
-const SignUpScreen = () => {
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [phone, setPhone] = useState('');
+const LogInPartnerScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rpassword, setRpassword] = useState('');
+  const [storenum, setStorenum] = useState('');
   const router = useRouter(); // Use the router hook
 
-
-  const handleSignUp = () => {
-    Toast.show({
-      type: 'info',
-      text1: 'SignUp Successful!',
-      position: 'bottom',
-      visibilityTime: 2000,
-      autoHide: true,
-      topOffset: 30,
-      bottomOffset: 40,
-    });
-    // Navigate to the LoginScreen
-    router.push('/LoginScreen'); // Use router.push to navigate
-  };
   const handleLogin = () => {
-    // Navigate to the LoginScreen
-    router.push('/LoginScreen'); // Use router.push to navigate
+    // Navigate to the HomeScreen
+    router.push('/HomeScreen'); // Use router.push to navigate
   };
+  const handleSignup = () => {
+    // Navigate to the SignupScreen
+    router.push('/SignupScreen'); // Use router.push to navigate
+  };
+
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Create your ShopSmart account!</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="First Name"
-        value={fname}
-        onChangeText={setFname}
-        keyboardType="default"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Last Name"
-        value={lname}
-        onChangeText={setLname}
-        keyboardType="default"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phone}
-        onChangeText={setPhone}
-        keyboardType="default"
-      />
+      <Text style={styles.welcomeText}>Login to your ShopSmart Partner Account!</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -72,17 +39,21 @@ const SignUpScreen = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Re-Enter Password"
-        value={rpassword}
-        onChangeText={setRpassword}
-        keyboardType="visible-password"
+        placeholder="Store Number"
+        value={storenum}
+        onChangeText={setStorenum}
+        keyboardType="numeric"
       />
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-        <Text style={styles.buttonText}>Signup</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Already Have Account?</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.linkText}>Forgot Password?</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={(handleSignup)}>
+        <Text style={styles.linkText}>Sign Up</Text>
+      </TouchableOpacity>
+      <Toast />
     </View>
   );
 };
@@ -113,7 +84,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
-    marginBottom: 12,
   },
   buttonText: {
     color: '#FFFFFF',
@@ -126,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default LogInPartnerScreen;
