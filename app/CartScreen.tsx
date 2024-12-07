@@ -63,7 +63,7 @@ const CartScreen: React.FC = () => {
         text: 'OK',
         onPress: () => {
           // Navigate to CustomerHomeScreen after alert is closed
-          router.push('/CustomerHomeScreen');  // Replace '/home' with the correct path for CustomerHomeScreen
+          router.push('/InventoryScreen');  // Replace '/home' with the correct path for CustomerHomeScreen
         },
       },
     ]);
