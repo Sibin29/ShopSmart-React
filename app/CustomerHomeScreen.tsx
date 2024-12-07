@@ -17,6 +17,9 @@ const CustomerHomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <TextInput style={styles.searchBar} placeholder="Search shops..." />
+        <TouchableOpacity onPress={() => router.push('/CartScreen')}>
+          <Text style={styles.profileIcon}>🛒</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => router.push('/UserProfileScreen')}>
           <Text style={styles.profileIcon}>👤</Text>
         </TouchableOpacity>

@@ -10,6 +10,7 @@ const InventoryScreen = () => {
     { id: '3', name: 'Shampoo', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Shampoo' },
     { id: '4', name: 'Toothpaste', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Toothpaste' },
     { id: '5', name: 'Detergent', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Detergent' },
+    { id: '5', name: 'Chocolates', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Chocolates' }
   ];
 
   return (
@@ -78,11 +79,12 @@ const styles = StyleSheet.create({
   shopItemContainer: {
     flex: 1,
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   shopItem: {
     width: '90%',
     height: 150,
+    padding: 16,
     backgroundColor: '#B3D9FF',
     borderRadius: 12,
     justifyContent: 'center',
