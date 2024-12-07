@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const HomeScreen = () => {
+const InventoryScreen = () => {
   const router = useRouter();
   const shops = [
-    { id: '1', name: 'Apple' },
-    { id: '2', name: 'Orange' },
-    { id: '3', name: 'Shampoo' },
-    { id: '4', name: 'Toothpaste' },
-    { id: '5', name: 'Detergent' }
+    { id: '1', name: 'Apple', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Apple' },
+    { id: '2', name: 'Orange', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Orange' },
+    { id: '3', name: 'Shampoo', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Shampoo' },
+    { id: '4', name: 'Toothpaste', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Toothpaste' },
+    { id: '5', name: 'Detergent', image: 'https://placehold.co/200x200/B3D9FF/007BFF/png?text=Detergent' },
   ];
 
   return (
@@ -24,18 +24,23 @@ const HomeScreen = () => {
       <FlatList
         data={shops}
         renderItem={({ item }) => (
-          <View style={styles.shopItemContainer}>
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: '/ItemDetail',
+                params: { itemName: item.name, itemImage: item.image },
+              })
+            }
+            style={styles.shopItemContainer}
+          >
             <View style={styles.shopItem}>
-              <Image
-                source={{ uri: 'https://placehold.co/1000x200/B3D9FF/007BFF/png?text='+ item.name }} // Updated placeholder image URL
-                style={styles.shopImage}
-              />
+              <Image source={{ uri: item.image }} style={styles.shopImage} />
             </View>
             <Text style={styles.shopName}>{item.name}</Text>
-          </View>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id}
-        numColumns={2} // Adjusting for larger items per row
+        numColumns={2}
       />
     </View>
   );
@@ -76,13 +81,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   shopItem: {
-    width: '90%', // Horizontal size
-    height: 150, // Vertical size
-    backgroundColor: '#B3D9FF', // Lighter shade of #007BFF that is used for buttons
+    width: '90%',
+    height: 150,
+    backgroundColor: '#B3D9FF',
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 4, // Shadow for the rectangles
+    elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -101,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default InventoryScreen;
