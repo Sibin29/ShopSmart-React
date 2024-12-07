@@ -11,7 +11,7 @@ const LogInPartnerScreen = () => {
 
   const handleLogin = () => {
     // Navigate to the HomeScreen
-    router.push('/HomeScreen'); // Use router.push to navigate
+    router.push('/ManagerHomeScreen'); // Use router.push to navigate
   };
   const handleSignup = () => {
     // Navigate to the SignupScreen

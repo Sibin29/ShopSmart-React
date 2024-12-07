@@ -9,8 +9,10 @@ export default function Layout() {
       <Stack.Screen name="SignupScreen" options={{ title: 'Create a new account' }} />
       <Stack.Screen name="LogInPartnerScreen" options={{ title: 'Login as Partner' }} />
       <Stack.Screen name="SignupPartnerScreen" options={{ title: 'Create a new account as Partner' }} />
-      <Stack.Screen name="HomeScreen" options={{ title: 'Shops' }} />
+      <Stack.Screen name="ManagerHomeScreen" options={{ title: 'Inventory' }} />
+      <Stack.Screen name="CustomerHomeScreen" options={{ title: 'All Shops' }} />
       <Stack.Screen name="UserProfileScreen" options={{ title: 'My Profile' }} />
+      <Stack.Screen name="InventoryScreen" options={{ title: 'Shop for items' }} />
     </Stack>
   );
 }

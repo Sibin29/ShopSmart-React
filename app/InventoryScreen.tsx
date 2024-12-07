@@ -5,22 +5,22 @@ import { useRouter } from 'expo-router';
 const HomeScreen = () => {
   const router = useRouter();
   const shops = [
-    { id: '1', name: 'Shoppers' },
-    { id: '2', name: 'No Frills' },
-    { id: '3', name: 'Rexall' },
-    { id: '4', name: 'Circle K' },
-    { id: '5', name: 'Dollarama' }
+    { id: '1', name: 'Apple' },
+    { id: '2', name: 'Orange' },
+    { id: '3', name: 'Shampoo' },
+    { id: '4', name: 'Toothpaste' },
+    { id: '5', name: 'Detergent' }
   ];
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TextInput style={styles.searchBar} placeholder="Search shops..." />
+        <TextInput style={styles.searchBar} placeholder="Search Inventory..." />
         <TouchableOpacity onPress={() => router.push('/UserProfileScreen')}>
           <Text style={styles.profileIcon}>👤</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.title}>Shops</Text>
+      <Text style={styles.title}>Items</Text>
       <FlatList
         data={shops}
         renderItem={({ item }) => (
