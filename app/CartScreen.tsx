@@ -58,7 +58,7 @@ const CartScreen: React.FC = () => {
 
   // Handle checkout
   const handleCheckout = () => {
-    Alert.alert('Order placed!', 'Your order will be available to pick-up in 30 minutes.', [
+    Alert.alert('Order placed!', 'Your order will be available for pick-up in 30 minutes.', [
       {
         text: 'OK',
         onPress: () => {
